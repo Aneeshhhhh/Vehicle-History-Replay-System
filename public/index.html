@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Replay - Live Feed</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel">
+        <h1>Vehicle Replay</h1>
+        <p class="meta" id="meta">Waiting for stream metadata...</p>
+
+        <div class="speed-card">
+          <p class="speed-label">Tracker Speed</p>
+          <p class="speed-value" id="trackerSpeed">0 km/h</p>
+          <p class="speed-label">Computed Speed</p>
+          <p class="speed-value" id="computedSpeed">0 km/h</p>
+        </div>
+
+        <div class="controls">
+          <button id="playBtn">Play</button>
+          <button id="pauseBtn">Pause</button>
+          <button id="resetBtn">Reset</button>
+
+          <label for="speedSelect">Speed</label>
+          <select id="speedSelect">
+            <option value="1000">1x</option>
+            <option value="500">2x</option>
+            <option value="250" selected>4x</option>
+            <option value="100">10x</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="map-wrap">
+        <div id="map"></div>
+      </section>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client.js"></script>
+  </body>
+</html>
