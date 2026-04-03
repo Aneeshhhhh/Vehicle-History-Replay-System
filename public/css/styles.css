@@ -55,8 +55,35 @@ body {
   color: #0a4f9a;
 }
 
+.speed-value.speed-low {
+  color: #1d7f3f;
+}
+
+.speed-value.speed-medium {
+  color: #ad6a00;
+}
+
+.speed-value.speed-high {
+  color: #b42318;
+}
+
 .speed-value:last-child {
   margin-bottom: 0;
+}
+
+.geofence-value {
+  margin: 0.2rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3a4a5e;
+}
+
+.geofence-value.geo-enter {
+  color: #1d7f3f;
+}
+
+.geofence-value.geo-exit {
+  color: #b42318;
 }
 
 .controls {

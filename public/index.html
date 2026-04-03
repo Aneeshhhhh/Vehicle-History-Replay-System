@@ -10,7 +10,7 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
     <main class="layout">
@@ -23,6 +23,11 @@
           <p class="speed-value" id="trackerSpeed">0 km/h</p>
           <p class="speed-label">Computed Speed</p>
           <p class="speed-value" id="computedSpeed">0 km/h</p>
+        </div>
+
+        <div class="speed-card">
+          <p class="speed-label">Geofence Status</p>
+          <p class="geofence-value" id="geofenceStatus">No transition yet</p>
         </div>
 
         <div class="controls">
@@ -51,6 +56,6 @@
       crossorigin=""
     ></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/client.js"></script>
+    <script src="/js/client.js"></script>
   </body>
 </html>

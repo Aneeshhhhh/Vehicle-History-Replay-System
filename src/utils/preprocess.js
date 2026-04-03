@@ -1,12 +1,10 @@
 const fs = require("fs");
 const path = require("path");
-//Messy data file
 const RAW_FILE = path.join(
   __dirname,
-  "location-1767022742000-655373818600132608-953665129122103296-undefined.json"
+  "../../data/raw/location-1767022742000-655373818600132608-953665129122103296-undefined.json"
 );
-//cleaned and pre-processed file for drip-feed play and replay
-const OUTPUT_FILE = path.join(__dirname, "data.json");
+const OUTPUT_FILE = path.join(__dirname, "../../data/processed/data.json");
 
 function toRadians(value) {
   return (value * Math.PI) / 180;
@@ -36,14 +34,15 @@ function toPacket(row) {
     return null;
   }
 
+  const trackerSpeed = Number(row.sp ?? row.speed) || 0;
+
   return {
-    //checks for proper data fields or declares null 
     vehicleId: row.vehicle_id || null,
     timestamp: Number(row.timestamp) || null,
     lat,
     lng,
     heading: Number(row.hd) || 0,
-    speed: Number(row.sp) || 0,
+    speed: trackerSpeed,
   };
 }
 
@@ -87,7 +86,10 @@ function main() {
     };
   });
 
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(packetsWithComputedSpeed, null, 2));
+  fs.writeFileSync(
+    OUTPUT_FILE,
+    JSON.stringify(packetsWithComputedSpeed, null, 2)
+  );
   console.log(
     `Wrote ${packetsWithComputedSpeed.length} packets to ${OUTPUT_FILE}`
   );

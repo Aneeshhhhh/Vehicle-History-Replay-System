@@ -1,4 +1,13 @@
 {
+  "name": "vehicle-history-replay",
+  "version": "1.0.0",
+  "description": "Vehicle history replay system with MQTT integration and real-time visualization",
+  "main": "src/server.js",
+  "scripts": {
+    "preprocess": "node src/utils/preprocess.js",
+    "start": "node src/server.js",
+    "dev": "npm run preprocess && npm start"
+  },
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
